@@ -1,0 +1,18 @@
+#button{
+background-color:darkgray;
+color: white;
+margin-top: 350px;
+padding: 50px;
+font-size: 45px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+#button:hover{
+    background-color:#e6ba37;
+}
+
+h1{
+    color:white;
+}
+

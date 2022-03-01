@@ -1,0 +1,279 @@
+<html>
+
+<head>
+<title>
+TicTacToe
+</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+</head>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="ttp.css">
+<script src="main.js"></script>
+<body background="bg.png">
+
+<center>
+  
+  <br>
+  <br>
+  <br>
+  
+  <span>
+    <span><button onclick="x1()" class="btn btn-danger">x</button>
+      <button onclick="x2()" class="btn btn-danger">x</button>
+      <button onclick="x3()" class="btn btn-danger">x</button>
+    </span>
+
+<br>
+
+    <span>
+    <button onclick="x4()" class="btn btn-danger">x</button>
+    <button onclick="x5()" class="btn btn-danger">x</button>
+    <button onclick="x6()" class="btn btn-danger">x</button>
+  </span>
+
+<br>
+
+<span>
+    <button onclick="x7()" class="btn btn-danger">x</button>
+    <button onclick="x8()" class="btn btn-danger">x</button>
+    <button onclick="x9()" class="btn btn-danger">x</button>
+  </span>
+
+  <br>
+
+  <div>
+    <label id="lx"></label>
+    <button class="btn btn-danger" id="x" onclick="x()">X Points</button>
+  
+<canvas width="300" height="300" id="canvas"></canvas>    
+
+  <button class="btn btn-info" id="o" onclick="o()">Q Points</button>
+  <label id="lo"></label>
+</div>
+
+  </span>
+
+  <br>
+  <br>
+  <br>
+
+  <span>
+ 
+    <span><button onclick="y1()" class="btn btn-info">o</button>
+      <button onclick="y2()" class="btn btn-info">o</button>
+      <button onclick="y3()" class="btn btn-info">o</button>
+    </span>
+
+    <br>
+
+    <span>
+    <button onclick="y4()" class="btn btn-info">o</button>
+    <button onclick="y5()" class="btn btn-info">o</button>
+    <button onclick="y6()" class="btn btn-info">o</button>
+  </span>
+
+<br>
+
+<span>
+    <button onclick="y7()" class="btn btn-info">o</button>
+    <button onclick="y8()" class="btn btn-info">o</button>
+    <button onclick="y9()" class="btn btn-info">o</button>
+  </span>
+
+  <br>
+
+<button onclick= "clear()" id="clear" class="btn btn-warning">Clear Board</button>
+
+<script>
+var canvas = document.getElementById("canvas");
+var cts = canvas.getContext("2d")
+
+cts.beginPath();
+cts.moveTo(20,100);
+cts.lineTo(277,100);
+cts.moveTo(0,0);
+cts.moveTo(20,200);
+cts.lineTo(277,200);
+cts.moveTo(0,0);
+cts.moveTo(100,5);
+cts.lineTo(100,280);
+cts.moveTo(200,5);
+cts.lineTo(200,280);
+cts.strokeStyle = "white";
+cts.stroke();
+
+function x1(){
+cts.beginPath();
+cts.moveTo(0,0);
+cts.moveTo(30,30);
+cts.lineTo(85,85);
+cts.moveTo(30,85);
+cts.lineTo(85,30);
+cts.stroke();
+}
+
+function x2(){
+cts.beginPath();
+cts.moveTo(125,30);
+cts.lineTo(180,85);
+cts.moveTo(125,85);
+cts.lineTo(180,30);
+cts.stroke();
+}
+
+function x3(){
+cts.beginPath();
+cts.moveTo(215,30);
+cts.lineTo(270,85);
+cts.moveTo(215,85);
+cts.lineTo(270,30);
+cts.stroke();
+}
+
+function x4(){
+cts.beginPath();
+cts.moveTo(0,0);
+cts.moveTo(30,125);
+cts.lineTo(85,180);
+cts.moveTo(30,180);
+cts.lineTo(85,125);
+cts.stroke();
+}
+
+function x5(){
+cts.beginPath();
+cts.moveTo(0,0);
+cts.moveTo(125,125);
+cts.lineTo(180,180);
+cts.moveTo(125,180);
+cts.lineTo(180,125);
+cts.stroke();
+}
+
+function x6(){
+cts.beginPath();
+cts.moveTo(0,0);
+cts.moveTo(215,125);
+cts.lineTo(270,180);
+cts.moveTo(215,180);
+cts.lineTo(270,125);
+cts.stroke();
+}
+
+
+function x7(){
+cts.beginPath();
+cts.moveTo(0,0);
+cts.moveTo(30,215);
+cts.lineTo(85,270);
+cts.moveTo(30,270);
+cts.lineTo(85,215);
+cts.stroke();
+}
+
+function x8(){
+cts.beginPath();
+cts.moveTo(0,0);
+cts.moveTo(125,215);
+cts.lineTo(180,270);
+cts.moveTo(125,270);
+cts.lineTo(180,215);
+cts.stroke();
+}
+
+function x9(){
+cts.beginPath();
+cts.moveTo(0,0);
+cts.moveTo(215,215);
+cts.lineTo(270,270);
+cts.moveTo(215,270);
+cts.lineTo(270,215);
+cts.stroke();
+}
+
+function y1(){
+cts.beginPath();
+cts.arc(60,60,30,0,2 * Math.PI);
+cts.stroke();
+}
+
+function y2(){
+cts.beginPath();
+cts.arc(150,60,30,0,2 * Math.PI);
+cts.stroke();
+}
+
+function y3(){
+cts.beginPath();
+cts.arc(240,60,30,0,2 * Math.PI);
+cts.stroke();
+}
+
+function y4(){
+cts.beginPath();
+cts.arc(60,150,30,0,2 * Math.PI);
+cts.stroke();
+}
+
+function y5(){
+cts.beginPath();
+cts.arc(150,150,30,0,2 * Math.PI);
+cts.stroke();
+}
+
+function y6(){
+cts.beginPath();
+cts.arc(240,150,30,0,2 * Math.PI);
+cts.stroke();
+}
+
+function y7(){
+cts.beginPath();
+cts.arc(60,240,30,0,2 * Math.PI);
+cts.stroke();
+}
+
+function y8(){
+cts.beginPath();
+cts.arc(150,240,30,0,2 * Math.PI);
+cts.stroke();
+}
+
+function y9(){
+cts.beginPath();
+cts.arc(240,240,30,0,2 * Math.PI);
+cts.stroke();
+}
+
+function clear(){
+
+}
+
+scorex = 0;
+function x(){
+  scorex = scorex + 1;
+document.getElementById("lx").innerHTML = "X is score is " + scorex;
+}
+
+scoreo = 0;
+function o(){
+  scoreo = scoreo + 1;
+document.getElementById("lo").innerHTML = "O is score is " + scoreo;
+}
+
+</script>
+
+</center>
+
+<script src="ttp.js"></script>
+
+</body>
+
+
+</html>
